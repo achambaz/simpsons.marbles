@@ -62,7 +62,50 @@ where <i>the box</i> contains all the marbles poured together.
 ```r
 > library("simpsons.marbles")
 > example(pickMarble)
->
+> source(system.file("testScripts/example.R", package="simpsons.marbles"))
+```
+
+The first instruction  loads the package. The second one  runs the examples of
+use of  `pickMarble()` that are included  in its code.  The  third instruction
+runs a simulation study.
+
+Calling a "success" the drawing of  a red marble, the simulation study focuses
+on the  four causal  quantities defined  as the  probability of  success under
+interventions  <i>do</i>(large)  (imposing  that   the  marble  be  large)  or
+<i>do</i>(bag one) (imposing  that the marble be drawn from  bag one) when the
+inner mechanism decomposes either as
+
+1. draw a size, 
+2. draw a bag,
+3. draw a color 
+
+or as
+
+1. draw a bag,
+2. draw a size,
+3. draw a color.
+
+Note that it is easy to compute  the true values, as opposed to estimators, of
+the four causal quantities. It appears that
+
+<i>P(red|do(large)) = 50%,</i>
+
+<i>P(red|do(bag one)) = 35%</i>
+
+when the inner mechanism in the first one above, and 
+
+<i>P(red|do(large)) = 60%,</i>
+
+<i>P(red|do(bag one)) = 37.5%</i>
+
+otherwise.
+
+The simulation study replicates one million independent draws of a marble from
+the  box  for  each  combination  of intervention  and  inner  mechanism.  The
+estimators are merely the empirical proportions of marbles that are red in the
+simulated data sets.
+
+```r
 > ## #############################
 > ## SIMULATION STUDY 
 > ##
