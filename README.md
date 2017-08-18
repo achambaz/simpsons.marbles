@@ -13,8 +13,7 @@ marbles is the following:
 <table>
 	<tr>
 		<td></td>
-		<td>bag</td>
-		<td>one</td>
+		<td colspan=2>bag one</td>
 		<td></td>
 		<td>bag</td>
 		<td>two</td>
