@@ -1,0 +1,14 @@
+Package: simpsons.marbles
+Type: Package
+Title: Simpson's Marbles
+Version: 0.1.0
+Date: 2017-08-16
+Author: Antoine Chambaz, Isabelle Drouet, Sonia Memetea
+Maintainer: Antoine Chambaz <achambaz@u-paris10.fr>
+Description: Modest Package To Play Around With Marbles And Simpson's Paradox
+License: GPL
+LazyLoad: yes
+LazyData: yes
+Depends:
+    R (>= 2.10)
+RoxygenNote: 6.0.1

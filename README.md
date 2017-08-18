@@ -55,6 +55,8 @@ marbles is the following:
 </table>
 where <i>the box</i> contains all the marbles poured together.
 
+<br>
+
 ```r
 > library("simpsons.marbles")
 > example(simpsons.marbles)
