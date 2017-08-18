@@ -160,7 +160,7 @@ draw.bag <- function(when = c(1, 2, 3), iter, past, do) {
     bag <- rep(NA, iter)
     before <- names(past)
     if (before == "size") {
-      probs <- c(10/40, 30/40)
+      probs <- c(30/40, 10/40)
     } else if (before == "color") {
       probs <- c(11/36, 29/44)
     }

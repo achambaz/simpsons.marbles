@@ -62,7 +62,7 @@ where <i>the box</i> contains all the marbles poured together.
 ```r
 > library("simpsons.marbles")
 > example(pickMarble)
-> source(system.file("testScripts/example.R", package="simpsons.marbles"))
+> source(system.file("testScripts/simulationStudy.R", package="simpsons.marbles"))
 ```
 
 The first instruction  loads the package. The second one  runs the examples of
@@ -88,15 +88,15 @@ or as
 Note that it is easy to compute  the true values, as opposed to estimators, of
 the four causal quantities. It appears that
 
-<i>P(red|do(large)) = 50%,</i>
+P(red|<i>do</i>(large)) = 50%,
 
-<i>P(red|do(bag one)) = 35%</i>
+P(red|<i>do</i>(bag one)) = 35%
 
-when the inner mechanism in the first one above, and 
+when the inner mechanism is the first one above, and 
 
-<i>P(red|do(large)) = 60%,</i>
+P(red|<i>do</i>(large)) = 60%,
 
-<i>P(red|do(bag one)) = 37.5%</i>
+P(red|<i>do</i>(bag one)) = 37.5%
 
 otherwise.
 
@@ -105,99 +105,6 @@ the  box  for  each  combination  of intervention  and  inner  mechanism.  The
 estimators are merely the empirical proportions of marbles that are red in the
 simulated data sets.
 
-```r
-> ## #############################
-> ## SIMULATION STUDY 
-> ##
-> ## 'success' stands for 'drawing
-> ## a red marble'
-> ## 
-> ## Note: the true values of all
-> ## the estimated parameters can
-> ## be derived in closed form.
-> ## #############################
->
-> B <- 1e6 # 1 million independent repetitions for each simulation
->
-> ##
-> ## inner mechanism: (1) size, (2) bag, (3) color
-> ##
-> 
-> inner.mech <- "size, bag, color"
-> 
-> ## ## intervention: pick a large marble
-> 
-> ## -- setting the intervention
-> intervention <- "do(large)"
-> 
-> ## -- simulating 
-> data <- pickMarble(B, mech="sbc", do.size="large")
-> 
-> ## -- estimating the probability of success
-> probSuccess_do.large.sbc <- round(100 * mean(data$color == "red"), 1)
-> 
-> ## -- preparing the summary
-> msg <- sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
->                inner.mech, intervention, probSuccess_do.large.sbc)
-> 
-> ## ## intervention: pick from bag one
-> 
-> ## -- setting the intervention
-> intervention <- "do(bag one)"
-> 
-> ## -- simulating 
-> data <- pickMarble(B, mech="sbc", do.bag="one")
-> 
-> ## -- estimating the probability of success
-> probSuccess_do.one.sbc <- round(100 * mean(data$color == "red"), 1)
-> 
-> ## -- preparing the summary
-> msg <- c(msg,
->          sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
->                  inner.mech, intervention, probSuccess_do.one.sbc))
-> 
-> ##
-> ## inner mechanism: (1) bag, (2) size, (3) color
-> ##
-> 
-> inner.mech <- "bag, size, color"
-> 
-> ## intervention: pick a large marble
-> 
-> ## -- setting the intervention
-> intervention <- "do(large)"
-> 
-> ## -- simulating 
-> data <- pickMarble(B, mech="bsc", do.size="large")
-> 
-> ## -- estimating the probability of success
-> probSuccess_do.large.bsc <- round(100 * mean(data$color == "red"), 1)
-> 
-> ## -- preparing the summary
-> msg <- c(msg,
->          sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
->                  inner.mech, intervention, probSuccess_do.large.bsc))
-> 
-> 
-> ## ## intervention: pick from bag one
-> 
-> ## -- setting the intervention
-> intervention <- "do(bag one)"
-> 
-> ## -- simulating 
-> data <- pickMarble(B, mech="bsc", do.bag="one")
-> 
-> ## -- estimating the probability of success
-> probSuccess_do.one.bsc <- round(100 * mean(data$color == "red"), 1)
-> 
-> ## -- preparing the summary
-> msg <- c(msg,
->          sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
->                  inner.mech, intervention, probSuccess_do.one.bsc))
-> 
-> ## ## printing the summary
-> cat(msg)
-```
 
 
 ## Citation
