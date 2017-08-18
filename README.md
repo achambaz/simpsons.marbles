@@ -62,11 +62,17 @@ where <i>the box</i> contains all the marbles poured together.
 ```r
 > library("simpsons.marbles")
 > example(pickMarble)
-```
-
-```r
+>
+> ## ############################
+> ## SIMULATION STUDY 
+> ##
+> ## Note: the true values of all
+> ## the estimated parameters can
+> ## be derived in closed form.
+> ## ############################
+>
 > B <- 1e6 # 1 million independent repetitions for each simulation
-> 
+>
 > ##
 > ## inner mechanism: size, bag, color
 > ##
@@ -75,31 +81,31 @@ where <i>the box</i> contains all the marbles poured together.
 > 
 > ## ## intervention: pick large marble
 > 
-> ## ## -- setting the intervention
+> ## -- setting the intervention
 > intervention <- "do(large)"
 > 
-> ## ## -- simulating 
+> ## -- simulating 
 > simul.do.large.sbc <- pickMarble(B, mech="sbc", do.size="large")
 > 
-> ## ## -- estimating the probability of success
+> ## -- estimating the probability of success
 > success.do.large.sbc <- round(100 * mean(simul.do.large.sbc$color == "red"), 1)
 > 
-> ## ## -- preparing the summary
+> ## -- preparing the summary
 > msg <- sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
 >                inner.mech, intervention, success.do.large.sbc)
 > 
 > ## ## intervention: pick from bag one
 > 
-> ## ## -- setting the intervention
+> ## -- setting the intervention
 > intervention <- "do(bag one)"
 > 
-> ## ## -- simulating 
+> ## -- simulating 
 > simul.do.one.sbc <- pickMarble(B, mech="sbc", do.bag="one")
 > 
-> ## ## -- estimating the probability of success
+> ## -- estimating the probability of success
 > success.do.one.sbc <- round(100 * mean(simul.do.one.sbc$color == "red"), 1)
 > 
-> ## ## -- preparing the summary
+> ## -- preparing the summary
 > msg <- c(msg,
 >          sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
 >                  inner.mech, intervention, success.do.one.sbc))
@@ -112,16 +118,16 @@ where <i>the box</i> contains all the marbles poured together.
 > 
 > ## intervention: pick large marble
 > 
-> ## ## -- setting the intervention
+> ## -- setting the intervention
 > intervention <- "do(large)"
 > 
-> ## ## -- simulating 
+> ## -- simulating 
 > simul.do.large.bsc <- pickMarble(B, mech="bsc", do.size="large")
 > 
-> ## ## -- estimating the probability of success
+> ## -- estimating the probability of success
 > success.do.large.bsc <- round(100 * mean(simul.do.large.bsc$color == "red"), 1)
 > 
-> ## ## -- preparing the summary
+> ## -- preparing the summary
 > msg <- c(msg,
 >          sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
 >                  inner.mech, intervention, success.do.large.bsc))
@@ -129,16 +135,16 @@ where <i>the box</i> contains all the marbles poured together.
 > 
 > ## ## intervention: pick from bag one
 > 
-> ## ## -- setting the intervention
+> ## -- setting the intervention
 > intervention <- "do(bag one)"
 > 
-> ## ## -- simulating 
+> ## -- simulating 
 > simul.do.one.bsc <- pickMarble(B, mech="bsc", do.bag="one")
 > 
-> ## ## -- estimating the probability of success
+> ## -- estimating the probability of success
 > success.do.one.bsc <- round(100 * mean(simul.do.one.bsc$color == "red"), 1)
 > 
-> ## ## -- preparing the summary
+> ## -- preparing the summary
 > msg <- c(msg,
 >          sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
 >                  inner.mech, intervention, success.do.one.bsc))
