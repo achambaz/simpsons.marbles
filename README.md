@@ -13,11 +13,11 @@ marbles is the following:
 <table>
 	<tr>
 		<td></td>
-		<td colspan=2 style="text-align:center;">bag one</td>
+		<td colspan=2 align="center">bag one</td>
 		<td></td>
-		<td colspan=2 style="text-align:center;">bag two</td>
+		<td colspan=2 align="center">bag two</td>
 		<td></td>
-		<td colspan=2 style="text-align:center;">the box</td> 
+		<td colspan=2 align="center">the box</td> 
 	</tr>
 	<tr>
 		<td></td>
