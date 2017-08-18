@@ -107,9 +107,10 @@ simulated data sets. They are arguably fairly accurate&hellip;
 
 
 
-## Citation
+## Authors and citation
 
-To cite the package, see 
+This  package  was written  by  Antoine  Chambaz,  Isabelle Drouet  and  Sonia
+Memetea. To cite the package, see
 
 ```r
 > citation("simpsons.marbles")
