@@ -88,15 +88,15 @@ or as
 Note that it is easy to compute  the true values, as opposed to estimators, of
 the four causal quantities. It appears that
 
-P(red|<i>do</i>(large)) = 50%,
-
-P(red|<i>do</i>(bag one)) = 35%
+<center>
+	P(red|<i>do</i>(large)) = 50% and P(red|<i>do</i>(bag one)) = 35%
+</center>
 
 when the inner mechanism is the first one above, and 
 
-P(red|<i>do</i>(large)) = 60%,
-
-P(red|<i>do</i>(bag one)) = 37.5%
+<center>
+	P(red|<i>do</i>(large)) = 60% and P(red|<i>do</i>(bag one)) = 37.5%
+</center>
 
 otherwise.
 
