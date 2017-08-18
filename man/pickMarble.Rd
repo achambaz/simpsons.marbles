@@ -48,7 +48,7 @@ ordering of these features.
   the sampling consists in \enumerate{\item drawing a bag if x=b, a size if
   x=s, a color if x=c, \item drawing  a bag if y=b, a size if
   y=s, a color if y=c, \item drawing a bag if z=b, a size if
-  z=s, a color if z=c.}  Used
+  z=s, a color if z=c.}  Introduced
   by  J.  G.   Bennett to  discuss Simpson's  paradox, the  distribution of
   marbles is the following: \tabular{rcccccccc}{\tab bag \tab one \tab \tab
   bag \tab two \tab \tab the \tab box  \cr \tab red \tab blue \tab \tab red

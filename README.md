@@ -8,7 +8,7 @@ characterized by the bag it belonged to  before being poured into the box (bag
 one or bag two), its size (small or large) and color (blue or red).  Six inner
 mechanisms are available, one for each ordering of these features.
 
-Used by  J.  G.   Bennett to  discuss Simpson's  paradox, the  distribution of
+Introduced by  J.  G.   Bennett to  discuss Simpson's  paradox, the  distribution of
 marbles is the following: 
 <table>
 	<tr>
@@ -57,12 +57,95 @@ where <i>the box</i> contains all the marbles poured together.
 
 <br>
 
+## Using the package
+
 ```r
 > library("simpsons.marbles")
-> example(simpsons.marbles)
+> example(pickMarble)
 ```
 
-Refer to the package's vignette for more details.
+```r
+> B <- 1e6 # 1 million independent repetitions for each simulation
+> 
+> ##
+> ## inner mechanism: size, bag, color
+> ##
+> 
+> inner.mech <- "size, bag, color"
+> 
+> ## ## intervention: pick large marble
+> 
+> ## ## -- setting the intervention
+> intervention <- "do(large)"
+> 
+> ## ## -- simulating 
+> simul.do.large.sbc <- pickMarble(B, mech="sbc", do.size="large")
+> 
+> ## ## -- estimating the probability of success
+> success.do.large.sbc <- round(100 * mean(simul.do.large.sbc$color == "red"), 1)
+> 
+> ## ## -- preparing the summary
+> msg <- sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
+>                inner.mech, intervention, success.do.large.sbc)
+> 
+> ## ## intervention: pick from bag one
+> 
+> ## ## -- setting the intervention
+> intervention <- "do(bag one)"
+> 
+> ## ## -- simulating 
+> simul.do.one.sbc <- pickMarble(B, mech="sbc", do.bag="one")
+> 
+> ## ## -- estimating the probability of success
+> success.do.one.sbc <- round(100 * mean(simul.do.one.sbc$color == "red"), 1)
+> 
+> ## ## -- preparing the summary
+> msg <- c(msg,
+>          sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
+>                  inner.mech, intervention, success.do.one.sbc))
+> 
+> ##
+> ## inner mechanism: bag, size, color
+> ##
+> 
+> inner.mech <- "bag, size, color"
+> 
+> ## intervention: pick large marble
+> 
+> ## ## -- setting the intervention
+> intervention <- "do(large)"
+> 
+> ## ## -- simulating 
+> simul.do.large.bsc <- pickMarble(B, mech="bsc", do.size="large")
+> 
+> ## ## -- estimating the probability of success
+> success.do.large.bsc <- round(100 * mean(simul.do.large.bsc$color == "red"), 1)
+> 
+> ## ## -- preparing the summary
+> msg <- c(msg,
+>          sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
+>                  inner.mech, intervention, success.do.large.bsc))
+> 
+> 
+> ## ## intervention: pick from bag one
+> 
+> ## ## -- setting the intervention
+> intervention <- "do(bag one)"
+> 
+> ## ## -- simulating 
+> simul.do.one.bsc <- pickMarble(B, mech="bsc", do.bag="one")
+> 
+> ## ## -- estimating the probability of success
+> success.do.one.bsc <- round(100 * mean(simul.do.one.bsc$color == "red"), 1)
+> 
+> ## ## -- preparing the summary
+> msg <- c(msg,
+>          sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
+>                  inner.mech, intervention, success.do.one.bsc))
+> 
+> ## ## printing the summary
+> cat(msg)
+```
 
 
 ## Citation
