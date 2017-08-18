@@ -103,7 +103,7 @@ otherwise.
 The simulation study replicates one million independent draws of a marble from
 the  box  for  each  combination  of intervention  and  inner  mechanism.  The
 estimators are merely the empirical proportions of marbles that are red in the
-simulated data sets. They are arguably fairly accurate&#133;
+simulated data sets. They are arguably fairly accurate&hellip;
 
 
 
