@@ -63,36 +63,39 @@ where <i>the box</i> contains all the marbles poured together.
 > library("simpsons.marbles")
 > example(pickMarble)
 >
-> ## ############################
+> ## #############################
 > ## SIMULATION STUDY 
 > ##
+> ## 'success' stands for 'drawing
+> ## a red marble'
+> ## 
 > ## Note: the true values of all
 > ## the estimated parameters can
 > ## be derived in closed form.
-> ## ############################
+> ## #############################
 >
 > B <- 1e6 # 1 million independent repetitions for each simulation
 >
 > ##
-> ## inner mechanism: size, bag, color
+> ## inner mechanism: (1) size, (2) bag, (3) color
 > ##
 > 
 > inner.mech <- "size, bag, color"
 > 
-> ## ## intervention: pick large marble
+> ## ## intervention: pick a large marble
 > 
 > ## -- setting the intervention
 > intervention <- "do(large)"
 > 
 > ## -- simulating 
-> simul.do.large.sbc <- pickMarble(B, mech="sbc", do.size="large")
+> data <- pickMarble(B, mech="sbc", do.size="large")
 > 
 > ## -- estimating the probability of success
-> success.do.large.sbc <- round(100 * mean(simul.do.large.sbc$color == "red"), 1)
+> probSuccess_do.large.sbc <- round(100 * mean(data$color == "red"), 1)
 > 
 > ## -- preparing the summary
 > msg <- sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
->                inner.mech, intervention, success.do.large.sbc)
+>                inner.mech, intervention, probSuccess_do.large.sbc)
 > 
 > ## ## intervention: pick from bag one
 > 
@@ -100,37 +103,37 @@ where <i>the box</i> contains all the marbles poured together.
 > intervention <- "do(bag one)"
 > 
 > ## -- simulating 
-> simul.do.one.sbc <- pickMarble(B, mech="sbc", do.bag="one")
+> data <- pickMarble(B, mech="sbc", do.bag="one")
 > 
 > ## -- estimating the probability of success
-> success.do.one.sbc <- round(100 * mean(simul.do.one.sbc$color == "red"), 1)
+> probSuccess_do.one.sbc <- round(100 * mean(data$color == "red"), 1)
 > 
 > ## -- preparing the summary
 > msg <- c(msg,
 >          sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
->                  inner.mech, intervention, success.do.one.sbc))
+>                  inner.mech, intervention, probSuccess_do.one.sbc))
 > 
 > ##
-> ## inner mechanism: bag, size, color
+> ## inner mechanism: (1) bag, (2) size, (3) color
 > ##
 > 
 > inner.mech <- "bag, size, color"
 > 
-> ## intervention: pick large marble
+> ## intervention: pick a large marble
 > 
 > ## -- setting the intervention
 > intervention <- "do(large)"
 > 
 > ## -- simulating 
-> simul.do.large.bsc <- pickMarble(B, mech="bsc", do.size="large")
+> data <- pickMarble(B, mech="bsc", do.size="large")
 > 
 > ## -- estimating the probability of success
-> success.do.large.bsc <- round(100 * mean(simul.do.large.bsc$color == "red"), 1)
+> probSuccess_do.large.bsc <- round(100 * mean(data$color == "red"), 1)
 > 
 > ## -- preparing the summary
 > msg <- c(msg,
 >          sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
->                  inner.mech, intervention, success.do.large.bsc))
+>                  inner.mech, intervention, probSuccess_do.large.bsc))
 > 
 > 
 > ## ## intervention: pick from bag one
@@ -139,15 +142,15 @@ where <i>the box</i> contains all the marbles poured together.
 > intervention <- "do(bag one)"
 > 
 > ## -- simulating 
-> simul.do.one.bsc <- pickMarble(B, mech="bsc", do.bag="one")
+> data <- pickMarble(B, mech="bsc", do.bag="one")
 > 
 > ## -- estimating the probability of success
-> success.do.one.bsc <- round(100 * mean(simul.do.one.bsc$color == "red"), 1)
+> probSuccess_do.one.bsc <- round(100 * mean(data$color == "red"), 1)
 > 
 > ## -- preparing the summary
 > msg <- c(msg,
 >          sprintf("\n-----\nInner mechanism: %s\nIntervention: %s\nProbability of success approximately: %.1f%%\n-----\n",
->                  inner.mech, intervention, success.do.one.bsc))
+>                  inner.mech, intervention, probSuccess_do.one.bsc))
 > 
 > ## ## printing the summary
 > cat(msg)
