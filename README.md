@@ -58,12 +58,15 @@ qualifies as an instance of Simpson's reversal of associations because
 
 <p align="center">
 	P(red|large, bag one) = 40% > P(red|small, bag one) = 30%,
-	
-	P(red|large, bag two) = 80% > P(red|small, bag two) = 70%,
-	
-	P(red|large) = 50% < P(red|small) = 60%.
 </p>
 
+<p align="center">
+	P(red|large, bag two) = 80% > P(red|small, bag two) = 70%,
+</p>
+
+<p align="center">
+	P(red|large) = 50% < P(red|small) = 60%.
+</p>
 
 <br>
 
