@@ -68,6 +68,11 @@ qualifies as an instance of Simpson's reversal of associations because
 	P(red|large) = 50% < P(red|small) = 60%.
 </p>
 
+In words,  the proportion  of large marbles  that are red  is bigger  than the
+proportion of small marbles  that are red in each bag,  and yet the proportion
+of large  marbles that  are red  is not  bigger than  the proportion  of small
+marbles that are red overall.
+
 <br>
 
 ## Using the package
