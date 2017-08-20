@@ -3,10 +3,17 @@
 ## Introduction
 
 The  `pickMarble()`  function of  the  simpsons.marbles  package is  meant  to
-simulate  easily the  sampling  (with  replacement) from  a  box  of a  marble
-characterized by the bag it belonged to  before being poured into the box (bag
-one or bag two), its size (small or large) and color (blue or red).  Six inner
-mechanisms are available, one for each ordering of these features.
+simulate easily the sampling (with replacement)  of a marble from a collection
+of  marbles  characterized  by  a  tag indicating  to  which  bag  the  marble
+originally belonged to (one or two), its size (small or large) and color (blue
+or red).   The marbles are  either poured altogether in  a box or  gathered by
+similar  features in  undistinguishable  pouches.  For  instance, the  marbles
+tagged one could  be separated from the marbles tagged  two; then, within each
+pouch, the large marbles could be  separated from the small ones; then, within
+each  pouch, the  red marbles  could  be separated  from the  blue ones.   The
+innermost pouches  contain marbles  that share the  same features.   In total,
+there are  six ways  to separate  the marbles,  one for  each ordering  of the
+marbles' features.
 
 Introduced by  J.  G.   Bennett to  discuss Simpson's  paradox, the  distribution of
 marbles is the following: 
@@ -53,8 +60,8 @@ marbles is the following:
 		<td>16</td>		
 	</tr>
 </table>
-where <i>the  box</i> contains  all the marbles  poured together.  The example
-qualifies as an instance of Simpson's reversal of associations because
+The example  qualifies as  an instance of  Simpson's reversal  of associations
+because 
 
 <p align="center">
 	P(red|large, bag one) = 40% > P(red|small, bag one) = 30%,
@@ -69,9 +76,9 @@ qualifies as an instance of Simpson's reversal of associations because
 </p>
 
 In words,  the proportion  of large marbles  that are red  is bigger  than the
-proportion of small marbles  that are red in each bag,  and yet the proportion
-of large  marbles that  are red  is not  bigger than  the proportion  of small
-marbles that are red overall.
+proportion of  small marbles that  are red in each  original bag, and  yet the
+proportion of large marbles that are red  is not bigger than the proportion of
+small marbles that are red overall.
 
 <br>
 
@@ -91,17 +98,18 @@ Calling a "success" the drawing of  a red marble, the simulation study focuses
 on the  four causal  quantities defined  as the  probability of  success under
 interventions  <i>do</i>(large)  (imposing  that   the  marble  be  large)  or
 <i>do</i>(bag one) (imposing  that the marble be drawn from  bag one) when the
-inner mechanism decomposes either as
+approach to the gathering of the marbles by similar features decomposes either
+as
 
-1. draw a size, 
-2. draw a bag,
-3. draw a color 
+1. gather by size, 
+2. gather by bag,
+3. gather by color 
 
 or as
 
-1. draw a bag,
-2. draw a size,
-3. draw a color.
+1. gather by bag,
+2. gather by size,
+3. gather by color.
 
 Note that it is easy to compute  the true values, as opposed to estimators, of
 the four causal quantities. It appears that
@@ -110,7 +118,7 @@ the four causal quantities. It appears that
 	P(red|<i>do</i>(large)) = 50% and P(red|<i>do</i>(bag one)) = 35%
 </p>
 
-when the inner mechanism is the first one above, and 
+when the approach to gathering is the first one above, and 
 
 <p align="center">
 	P(red|<i>do</i>(large)) = 60% and P(red|<i>do</i>(bag one)) = 37.5%
@@ -119,7 +127,7 @@ when the inner mechanism is the first one above, and
 otherwise.
 
 The simulation study replicates one million independent draws of a marble from
-the  box  for  each  combination  of intervention  and  inner  mechanism.  The
+the box for  each combination of intervention and approach  to gathering.  The
 estimators are merely the empirical proportions of marbles that are red in the
 simulated data sets. They are arguably fairly accurate&hellip;
 

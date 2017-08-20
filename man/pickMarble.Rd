@@ -4,16 +4,17 @@
 \alias{pickMarble}
 \title{Simulates the Drawing of A Marble.}
 \usage{
-pickMarble(iter = 10, mech = "bsc", do.bag = NULL, do.size = NULL,
+pickMarble(iter = 10, gather.by = NULL, do.bag = NULL, do.size = NULL,
   do.color = NULL)
 }
 \arguments{
 \item{iter}{integer, the number of independent iterations (defaults to 10).}
 
-\item{mech}{character, one  among  "bsc" (default  value), "bcs",  "sbc",
-"scb", "cbs", "csb", to specify the  inner mechanism used to simulate the
-drawing. The  ordering of the  first letters of  the words bag,  size and
-color determines in which order the features are drawn.}
+\item{gather.by}{either  NULL  for  no  gathering  (default value)  or  a
+character, one among "bsc", "bcs", "sbc", "scb", "cbs", "csb", to specify
+how the marbles  were gathered. The ordering of the  first letters of the
+words  bag, size  and color  determines in  which order  the marbles  are
+gathered.}
 
 \item{do.bag}{either  NULL for no intervention on bag  (default value) or a
 character  to specify  the nature  of the  intervention, either  "one" or
@@ -32,45 +33,54 @@ A  data.frame with iter rows  and 3 columns describing  the results of
   the iter independent samplings.
 }
 \description{
-\code{pickMarble} simulates the drawing (with  replacement) from a box of a
-marble characterized by the bag it belonged to before being poured into the
-box, its size and color.  Six  inner mechanisms are available, one for each
-ordering of these features.
+\code{pickMarble} simulates the drawing (with replacement) of a marble from
+a collection of marbles characterized by a tag indicating to which bag each
+marble belonged to originally, its size  and color.  The marbles are either
+poured   together  in   a  box,   or  gathered   by  similar   features  in
+undistinguishable pouches.  Six approaches to  the gathering of marbles are
+available, one for each ordering of the features.
 }
 \details{
 \code{pickMarble} simulates the  drawing (with replacement)  of a
-  marble from  a box of marbles  characterized by the bag  they belonged to
-  before  being poured  into the  box (\emph{bag  one} or  \emph{bag two}),
+  marble from  a collection  of marbles characterized  a tag  indicating to
+  which bag they belonged to originally (\emph{bag one} or \emph{bag two}),
   their  size  (\emph{large}  or  \emph{small}) and  color  (\emph{red}  or
-  \emph{blue}).  Six inner mechanisms are considered, one for each ordering
-  of the features  of a marble. For a generic  inner mechanism described by
+  \emph{blue}).   The marbles  are  either  poured together  in  a box,  or
+  gathered  by   similar  features   in  undistinguishable   pouches.   Six
+  approaches to the  gathering are available, one for each  ordering of the
+  features of  a marble. For a  generic approach to gathering  described by
   "xyz" with distinct "x", "y", "z" taken in \eqn{\{}"b", "s", "c"\eqn{\}},
-  the sampling consists in \enumerate{\item drawing a bag if x=b, a size if
-  x=s, a color if x=c, \item drawing  a bag if y=b, a size if
-  y=s, a color if y=c, \item drawing a bag if z=b, a size if
-  z=s, a color if z=c.}  Introduced
-  by  J.  G.   Bennett to  discuss Simpson's  paradox, the  distribution of
-  marbles is the following: \tabular{rcccccccc}{\tab bag \tab one \tab \tab
-  bag \tab two \tab \tab the \tab box  \cr \tab red \tab blue \tab \tab red
-  \tab blue \tab \tab  red \tab blue \cr large \tab 12 \tab  18 \tab \tab 8
-  \tab 2 \tab \tab 20  \tab 20 \cr small \tab 3 \tab 7  \tab \tab 21 \tab 9
-  \tab  \tab 24  \tab 16}  where \emph{the  box} contains  all the  marbles
-  poured together.
+  the gathering consists in \enumerate{\item  gathering by bag if x=b, size
+  if x=s, color if  x=c, \item gathering by bag if y=b,  size if y=s, color
+  if  y=c, \item  gathering by  bag if  z=b, size  if z=s,  color if  z=c.}
+  Introduced  by  J.   G.   Bennett   to  discuss  Simpson's  paradox,  the
+  distribution of  marbles is  the following:  \tabular{rcccccccc}{\tab bag
+  \tab one \tab \tab bag \tab two \tab  \tab the \tab box \cr \tab red \tab
+  blue \tab \tab  red \tab blue \tab  \tab red \tab blue \cr  large \tab 12
+  \tab 18 \tab \tab 8  \tab 2 \tab \tab 20 \tab 20 \cr  small \tab 3 \tab 7
+  \tab \tab 21 \tab  9 \tab \tab 24 \tab 16}  where \emph{the box} contains
+  all the marbles when they are poured together.
 }
 \examples{
-## draw independently 10 marbles from the box 
-## with inner mechanism (1) bag, (2) size, (3) color
+## draw independently  10 marbles from the box where  all marbles have been
+## poured together
 
-pickMarble(10, mech = "bsc")
+pickMarble(10)
 
-## draw independently 10 marbles from bag one
-## with inner mechanism (1) bag, (2) size, (3) color
+## draw independently 10 marbles when the approach to 
+## gathering is given by (1) bag, (2) size, (3) color
 
-pickMarble(10, mech = "bsc", do.bag = "one")
+pickMarble(10, gather.by = "bsc")
 
-## draw independently 10 large marbles from the box
-## with inner mechanism (1) bag, (2) size, (3) color
+## draw independently 10 marbles from bag one when the
+## approach to gathering is given by (1) bag, (2) size,
+## (3) color
 
-pickMarble(10, mech = "bsc", do.size = "large")
+pickMarble(10, gather.by = "bsc", do.bag = "one")
+
+## draw independently 10 large marbles when the approach
+## to gathering is given by (1) bag, (2) size, (3) color
+
+pickMarble(10, gather.by = "bsc", do.size = "large")
 
 }
