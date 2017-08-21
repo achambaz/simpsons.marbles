@@ -84,10 +84,11 @@ small marbles that are red overall.
 When the  marbles are  not poured  together in the  box, the  probabilities to
 sample the  outer pouches  on the  one hand  and conditional  probabilities to
 sample the inner pouches  within an outer pouch on the  other hand reflect the
-overall distribution of marbles and  are thus possibly unequal.  For instance,
-in the above example,  the probability to sample either of  the outer pouch is
-50%,  and the  conditional  probability to  sample the  inner  pouch of  large
-marbles equals either 75% (if the marbles are tagged one) or 25% (otherwise).
+overall  distribution of  marbles and  are  thus possibly  unequal.  This  may
+represent an unconscious ordering of  textures by preference. For instance, in
+the above example, the probability to sample either of the outer pouch is 50%,
+and the  conditional probability to  sample the  inner pouch of  large marbles
+equals either 75% (if the marbles are tagged one) or 25% (otherwise).
 
 
 <br>
