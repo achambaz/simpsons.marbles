@@ -36,8 +36,8 @@ A  data.frame with iter rows  and 3 columns describing  the results of
 \code{pickMarble} simulates the drawing (with replacement) of a marble from
 a collection of marbles characterized by a tag indicating to which bag each
 marble belonged to originally, its size  and color.  The marbles are either
-poured   together  in   a  box,   or  gathered   by  similar   features  in
-undistinguishable pouches.  Six approaches to  the gathering of marbles are
+poured together  in a box,  or gathered by  similar features in  pouches of
+different  textures.   Six  approaches  to the  gathering  of  marbles  are
 available, one for each ordering of the features.
 }
 \details{
@@ -46,7 +46,7 @@ available, one for each ordering of the features.
   which bag they  originate from (\emph{bag one} or  \emph{bag two}), their
   size   (\emph{large}   or   \emph{small})  and   color   (\emph{red}   or
   \emph{blue}).   The marbles  are  either  poured together  in  a box,  or
-  gathered  by   similar  features   in  undistinguishable   pouches.   Six
+  gathered  by similar  features  in pouches  of  different textures.   Six
   approaches to the  gathering are available, one for each  ordering of the
   features of  a marble. For a  generic approach to gathering  described by
   "xyz" with distinct "x", "y", "z" taken in \eqn{\{}"b", "s", "c"\eqn{\}},
@@ -58,11 +58,12 @@ available, one for each ordering of the features.
   blue \tab \tab  red \tab blue \tab  \tab red \tab blue \cr  large \tab 12
   \tab 18 \tab \tab 8  \tab 2 \tab \tab 20 \tab 20 \cr  small \tab 3 \tab 7
   \tab \tab 21 \tab  9 \tab \tab 24 \tab 16}  where \emph{the box} contains
-  all the marbles  when they are poured together. When  the marbles are not
+  all the marbles when they are  poured together.  When the marbles are not
   poured together, the probabilities to sample the outer pouches on the one
   hand and conditional probabilities to  sample the inner pouches within an
   outer pouch on the other hand reflect the overall distribution of marbles
-  and are thus possibly unequal.
+  and are thus possibly unequal. This may represent an unconscious ordering
+  of textures by preference.
 }
 \examples{
 ## draw independently  10 marbles from the box where  all marbles have been

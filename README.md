@@ -7,7 +7,7 @@ simulate easily the sampling (with replacement)  of a marble from a collection
 of  marbles characterized  by  a  tag indicating  from  which  bag the  marble
 originates (one or  two), its size (small  or large) and color  (blue or red).
 The  marbles are  either  poured together  in  a box  or  gathered by  similar
-features in undistinguishable pouches.
+features in pouches of different textures.
 
 For  instance, the  marbles tagged  one could  be separated  from the  marbles
 tagged two; then, within each pouch, the large marbles could be separated from
