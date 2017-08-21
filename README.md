@@ -4,19 +4,20 @@
 
 The  `pickMarble()`  function of  the  simpsons.marbles  package is  meant  to
 simulate easily the sampling (with replacement)  of a marble from a collection
-of  marbles  characterized  by  a  tag indicating  to  which  bag  the  marble
-originally belonged to (one or two), its size (small or large) and color (blue
-or red).   The marbles are  either poured altogether in  a box or  gathered by
-similar  features in  undistinguishable  pouches.  For  instance, the  marbles
-tagged one could  be separated from the marbles tagged  two; then, within each
-pouch, the large marbles could be  separated from the small ones; then, within
-each  pouch, the  red marbles  could  be separated  from the  blue ones.   The
-innermost pouches  contain marbles  that share the  same features.   In total,
-there are  six ways  to separate  the marbles,  one for  each ordering  of the
-marbles' features.
+of  marbles characterized  by  a  tag indicating  from  which  bag the  marble
+originates (one or  two), its size (small  or large) and color  (blue or red).
+The  marbles are  either  poured together  in  a box  or  gathered by  similar
+features in undistinguishable pouches.
 
-Introduced by  J.  G.   Bennett to  discuss Simpson's  paradox, the  distribution of
-marbles is the following: 
+For  instance, the  marbles tagged  one could  be separated  from the  marbles
+tagged two; then, within each pouch, the large marbles could be separated from
+the small ones. In total, there are  six ways to separate the marbles, one for
+each ordering of the marbles' features. In any case, the outer pouches contain
+marbles that  share one of the  three features, and the  inner pouches contain
+marbles that share two of the three features.
+
+Introduced by J.  G.  Bennett to discuss Simpson's paradox, the distribution
+of marbles is the following: 
 <table>
 	<tr>
 		<td></td>
@@ -80,6 +81,15 @@ proportion of  small marbles that  are red in each  original bag, and  yet the
 proportion of large marbles that are red  is not bigger than the proportion of
 small marbles that are red overall.
 
+When the  marbles are  not poured  together in the  box, the  probabilities to
+sample the  outer pouches  on the  one hand  and conditional  probabilities to
+sample the inner pouches  within an outer pouch on the  other hand reflect the
+overall distribution of marbles and  are thus possibly unequal.  For instance,
+in the above example,  the probability to sample either of  the outer pouch is
+50%,  and the  conditional  probability to  sample the  inner  pouch of  large
+marbles equals either 75% (if the marbles are tagged one) or 25% (otherwise).
+
+
 <br>
 
 ## Using the package
@@ -103,13 +113,11 @@ as
 
 1. gather by size, 
 2. gather by bag,
-3. gather by color 
 
 or as
 
 1. gather by bag,
 2. gather by size,
-3. gather by color.
 
 Note that it is easy to compute  the true values, as opposed to estimators, of
 the four causal quantities. It appears that

@@ -43,23 +43,26 @@ available, one for each ordering of the features.
 \details{
 \code{pickMarble} simulates the  drawing (with replacement)  of a
   marble from  a collection  of marbles characterized  a tag  indicating to
-  which bag they belonged to originally (\emph{bag one} or \emph{bag two}),
-  their  size  (\emph{large}  or  \emph{small}) and  color  (\emph{red}  or
+  which bag they  originate from (\emph{bag one} or  \emph{bag two}), their
+  size   (\emph{large}   or   \emph{small})  and   color   (\emph{red}   or
   \emph{blue}).   The marbles  are  either  poured together  in  a box,  or
   gathered  by   similar  features   in  undistinguishable   pouches.   Six
   approaches to the  gathering are available, one for each  ordering of the
   features of  a marble. For a  generic approach to gathering  described by
   "xyz" with distinct "x", "y", "z" taken in \eqn{\{}"b", "s", "c"\eqn{\}},
-  the gathering consists in \enumerate{\item  gathering by bag if x=b, size
+  the gathering consists in \enumerate{\item gathering by bag if x=b, size
   if x=s, color if  x=c, \item gathering by bag if y=b,  size if y=s, color
-  if  y=c, \item  gathering by  bag if  z=b, size  if z=s,  color if  z=c.}
-  Introduced  by  J.   G.   Bennett   to  discuss  Simpson's  paradox,  the
+  if y=c.}  Introduced by J.  G.  Bennett to discuss Simpson's paradox, the
   distribution of  marbles is  the following:  \tabular{rcccccccc}{\tab bag
   \tab one \tab \tab bag \tab two \tab  \tab the \tab box \cr \tab red \tab
   blue \tab \tab  red \tab blue \tab  \tab red \tab blue \cr  large \tab 12
   \tab 18 \tab \tab 8  \tab 2 \tab \tab 20 \tab 20 \cr  small \tab 3 \tab 7
   \tab \tab 21 \tab  9 \tab \tab 24 \tab 16}  where \emph{the box} contains
-  all the marbles when they are poured together.
+  all the marbles  when they are poured together. When  the marbles are not
+  poured together, the probabilities to sample the outer pouches on the one
+  hand and conditional probabilities to  sample the inner pouches within an
+  outer pouch on the other hand reflect the overall distribution of marbles
+  and are thus possibly unequal.
 }
 \examples{
 ## draw independently  10 marbles from the box where  all marbles have been
